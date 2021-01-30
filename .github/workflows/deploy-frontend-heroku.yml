@@ -1,19 +1,19 @@
 name: Deploy
 
 on:
-    push:
-        branches:
-            - release-frontend
+  push:
+    branches:
+      - release-frontend
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
-            - uses: akhileshns/heroku-deploy@v3.8.9 # This is the action
-              with:
-                  heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-                  heroku_app_name: OPORFRONT
-                  heroku_email: ${{secrets.HEROKU_EMAIL}}
-                  usedocker: true
-                  appdir: "frontend"
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.8.9 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: opor-frontend
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          usedocker: true
+          appdir: 'frontend'
